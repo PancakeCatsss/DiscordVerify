@@ -17,6 +17,11 @@ import simple.brainsynder.utils.WebConnector;
 import java.util.concurrent.CompletableFuture;
 
 public class VerifyCommand implements CommandExecutor {
+	
+	private Core plugin;
+	public VerifyCommand(Core pl) {
+		this.plugin = pl;
+	}
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
@@ -26,6 +31,18 @@ public class VerifyCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
+        
+        if(plugin.getCodes().containsKey(player.getUniqueId().toString())) {
+        	String code = plugin.getCodes().get(player.getUniqueId().toString());
+            ITellraw msg = Reflection.getTellraw(Utils.c("&f[&eDiscordVerify&f] &eYour code is&f: "));
+            msg.color(ChatColor.GREEN);
+            msg.then(ChatColor.UNDERLINE + code);
+            msg.tooltip(Utils.c("&aClick here to copy"));
+            msg.suggest(code);
+            msg.send(player);
+            return true;
+        }
+        
         PermissionUser user = PermissionsEx.getUser(player);
         if (user.getGroups().length == 1) {
             player.sendMessage(Utils.c("&f[&eDiscordVerify&f] &cIn order to join our discord server you must be a higher rank than Builder&f. Please use &e/ar check &fto see when you rank up&f."));
@@ -38,6 +55,7 @@ public class VerifyCommand implements CommandExecutor {
         msg.then(ChatColor.UNDERLINE + code);
         msg.tooltip(Utils.c("&aClick here to copy"));
         msg.suggest(code);
+        plugin.getCodes().put(player.getUniqueId().toString(), code);
 
         CompletableFuture.runAsync(() -> {
             WebConnector.getInputStream("http://pluginwiki.us/bobcats/upload.php?code="+code+"uuid="+player.getUniqueId().toString());
