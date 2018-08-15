@@ -1,6 +1,6 @@
 name: DiscordVerify
 authors: [bobcatsss,brainsynder]
-depends: [SimpleAPI]
+depends: [SimpleAPI, PermissionsEx]
 version: 0.1
 main: me.bobcatsss.discordverify.Core
 commands:

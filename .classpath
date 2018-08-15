@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Aaron/Desktop/PermissionsEx-1.33.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aaron/Downloads/New folder (2)/New folder (2)/TestServer/spigot-1.12.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aaron/Downloads/New folder (2)/New folder (2)/TestServer/plugins/plugins/SimpleAPI.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
