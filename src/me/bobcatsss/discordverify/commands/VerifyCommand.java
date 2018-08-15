@@ -58,7 +58,7 @@ public class VerifyCommand implements CommandExecutor {
         plugin.getCodes().put(player.getUniqueId().toString(), code);
 
         CompletableFuture.runAsync(() -> {
-            WebConnector.getInputStream("http://pluginwiki.us/bobcats/upload.php?code="+code+"uuid="+player.getUniqueId().toString());
+            WebConnector.getInputStream("http://pluginwiki.us/bobcats/upload.php?code="+code+"&uuid="+player.getUniqueId().toString());
             new BukkitRunnable() {
                 @Override
                 public void run() {
