@@ -20,12 +20,12 @@ public class VerifyCommand implements CommandExecutor {
 		}
 		Player player = (Player) sender;
 		String code = Utils.randomID("1234567890ABCDEFG", 10);
-        ITellraw msg = Reflection.getTellraw("§f[§eDiscordVerify§f] §eYour code is§f: ");
-        msg.color (ChatColor.GREEN); 
-        msg.then(ChatColor.UNDERLINE + code);
-        msg.tooltip ("§aClick here to copy");
-        msg.suggest (code);
-        msg.send (player);
+                ITellraw msg = Reflection.getTellraw("Â§f[Â§eDiscordVerifyÂ§f] Â§eYour code isÂ§f: ");
+                msg.color (ChatColor.GREEN); 
+                msg.then(ChatColor.UNDERLINE + code);
+                msg.tooltip("Â§aClick here to copy");
+                msg.suggest(code);
+                msg.send(player);
 		return true;
 	}
 }
